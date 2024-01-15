@@ -13,7 +13,7 @@
 
 	<section class="lower-section">
 		<div class="form">
-			<form action="/submit" method="post">
+			<form id="commentForm" action="/submit" method="post">
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" required>
 				
@@ -24,12 +24,42 @@
 			</form>
 		</div>
 		<div class="comments">
-			<ul>
-				<!-- Display comments here dynamically -->
-				<li>Comment 1</li>
-				<li>Comment 2</li>
-				<!-- Add more as needed -->
+			<ul id="dynamic-comments">
+				<!-- Display dynamic comments here -->
+				{% for comment in comments %}
+					<li>{{ comment.username }}: {{ comment.comment }}</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</section>
+
+	<!-- Add this script at the end of home.njk, before the closing </body> tag -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const form = document.querySelector('#commentForm');
+			const dynamicCommentsContainer = document.getElementById('dynamic-comments');
+
+			form.addEventListener('submit', function(event) {
+				event.preventDefault();
+
+				const formData = new FormData(form);
+
+				fetch('/submit', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify(Object.fromEntries(formData)),
+				})
+				.then(response => response.json())
+				.then(data => {
+					// Update dynamic comments dynamically
+					dynamicCommentsContainer.innerHTML = data.comments.map(comment => `<li>${comment.username}: ${comment.comment}</li>`).join('');
+				})
+				.catch(error => {
+					console.error('Error submitting form:', error);
+				});
+			});
+		});
+	</script>
 {% endblock %}
