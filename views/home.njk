@@ -1,5 +1,35 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-<h1>Hello, world!</h1>
+	<section class="upper-section">
+		<div class="text">
+			<h2>Upper Section</h2>
+			<p>Some text goes here...</p>
+		</div>
+		<div class="image">
+			<img src="/assets/placeholder.png" alt="Placeholder Image">
+		</div>
+	</section>
+
+	<section class="lower-section">
+		<div class="form">
+			<form action="/submit" method="post">
+				<label for="username">Username:</label>
+				<input type="text" id="username" name="username" required>
+				
+				<label for="comment">Comment:</label>
+				<textarea id="comment" name="comment" required></textarea>
+				
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+		<div class="comments">
+			<ul>
+				<!-- Display comments here dynamically -->
+				<li>Comment 1</li>
+				<li>Comment 2</li>
+				<!-- Add more as needed -->
+			</ul>
+		</div>
+	</section>
 {% endblock %}

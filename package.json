@@ -4,19 +4,25 @@
   "description": "Frontend SASS Challenge",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "build:sass": "node-sass -r --output-style compressed scss/main.scss -o ./public/css",
-    "watch:sass": "npm run build:sass && npm run build:sass -- -w"
-  },
-  "author": "YOURNAMEHERE <USERNAME@email.com>",
+    "watch:sass": "npm run build:sass -- -w"
+  },  
+  "author": "JamesTin <jamestin100298@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "morgan": "^1.9.1",
     "node-sass": "^4.13.1",
     "nunjucks": "^3.2.0",
+    "sass": "^1.69.7",
     "winston": "^3.2.1"
   },
   "engines": {
     "node": ">=8"
+  },
+  "comments": {
+    "build:sass": "This script compiles SASS files and outputs the compressed CSS.",
+    "watch:sass": "This script watches for changes in SASS files and triggers the build."
   }
 }

@@ -1,8 +1,9 @@
 $primary-bg: #000;
 $primary-text-color: #FF3B3B;
+$navbar-bg: #333;
 
 body {
-	background-color: $primary-bg
+  background-color: $primary-bg;
 }
 
 h1,
@@ -11,5 +12,66 @@ h3,
 h4,
 h5,
 p {
-	color: $primary-text-color;
+  color: $primary-text-color;
+}
+
+nav {
+  background-color: $navbar-bg;
+  padding: 10px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.upper-section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  .text {
+    order: 1;
+    @media (min-width: 768px) {
+      order: 0;
+      flex: 1;
+    }
+  }
+
+  .image {
+    order: 0;
+    @media (min-width: 768px) {
+      order: 1;
+      flex: 1;
+    }
+  }
+}
+
+.lower-section {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  form {
+    order: 1;
+    @media (min-width: 768px) {
+      order: 0;
+      flex: 1;
+      padding-right: 20px; // Adjust as needed
+    }
+  }
+
+  .comments {
+    order: 0;
+    @media (min-width: 768px) {
+      order: 1;
+      flex: 1;
+    }
+  }
 }

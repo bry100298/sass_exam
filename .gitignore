@@ -1,1 +1,35 @@
+# Node.js
+node_modules/
+
+# Compiled files
+*.log
+*.json
+*.sqlite
+*.sqlite3
+*.csv
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# macOS
 .DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editor-specific files
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System Files
+.DS_Store
+Thumbs.db
