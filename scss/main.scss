@@ -1,6 +1,6 @@
 $primary-bg: #000;
-$primary-text-color: #FF3B3B;
-$navbar-bg: #333;
+$primary-text-color: #ff3b3b;
+$navbar-bg: #333333;
 
 body {
   background-color: $primary-bg;
@@ -58,12 +58,22 @@ nav {
     flex-direction: row;
   }
 
-  form {
+  .form {
     order: 1;
     @media (min-width: 768px) {
       order: 0;
       flex: 1;
       padding-right: 20px; // Adjust as needed
+    }
+    // Add the following rule to make label and .username text color white
+    label[for="username"],
+    .username {
+      color: white;
+    }
+
+    // Add the following rule to make label associated with "comment" text color white
+    label[for="comment"] {
+      color: white;
     }
   }
 
@@ -72,6 +82,10 @@ nav {
     @media (min-width: 768px) {
       order: 1;
       flex: 1;
+      // Add the following rule to make .comments text color white
+      li {
+        color: white;
+      }
     }
   }
 }
